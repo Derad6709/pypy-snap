@@ -27,9 +27,6 @@ parts:
     source:
       - on amd64: http://buildbot.pypy.org/nightly/py3.7/pypy-c-jit-latest-linux64.tar.bz2
       - on arm64: http://buildbot.pypy.org/nightly/py3.7/pypy-c-jit-latest-aarch64.tar.bz2
-    override-build: |
-      bin/pypy -m compileall -qx '/tests?[_/]' .
-      snapcraftctl build
     stage-packages:
       - libfontconfig1
       - libxft2
