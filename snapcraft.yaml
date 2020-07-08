@@ -1,4 +1,4 @@
-name: pypy
+name: pypy-nightly
 version: '7.3.1'
 summary: PyPy is a fast, compliant alternative implementation of the Python language
 description: |
@@ -25,10 +25,8 @@ parts:
   pypy:
     plugin: dump
     source:
-      - on amd64: https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v$SNAPCRAFT_PROJECT_VERSION-linux64.tar.bz2
-      - on arm64: https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v$SNAPCRAFT_PROJECT_VERSION-aarch64.tar.bz2
-      - on ppc64el: https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v$SNAPCRAFT_PROJECT_VERSION-ppc64le.tar.bz2
-      - on s390x: https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v$SNAPCRAFT_PROJECT_VERSION-s390x.tar.bz2
+      - on amd64: http://buildbot.pypy.org/nightly/py3.7/pypy-c-jit-latest-linux64.tar.bz2
+      - on arm64: http://buildbot.pypy.org/nightly/py3.7/pypy-c-jit-latest-aarch64.tar.bz2
     override-build: |
       bin/pypy -m compileall -qx '/tests?[_/]' .
       snapcraftctl build
